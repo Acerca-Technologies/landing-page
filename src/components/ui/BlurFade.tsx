@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef } from "react";
 import { useInView, motion, type Variants } from "framer-motion";
 import { cn } from "../../lib/utils";
@@ -30,7 +31,7 @@ export function BlurFade({
 }: BlurFadeProps) {
   const ref = useRef(null);
   const inViewResult = useInView(ref, { once: true, margin: inViewMargin as any });
-  const isInView = !inView || inViewResult;
+  const isInView = inView || inViewResult;
   const defaultVariants: Variants = {
     hidden: { y: yOffset, opacity: 0, filter: `blur(${blur})` },
     visible: { y: -yOffset, opacity: 1, filter: `blur(0px)` },
@@ -47,7 +48,8 @@ export function BlurFade({
         duration,
         ease: "easeOut",
       }}
-      className={cn(className)}
+      className={cn(className, "will-change-[transform,opacity,filter]")}
+      style={{ transform: "translateZ(0)" }}
     >
       {children}
     </motion.div>

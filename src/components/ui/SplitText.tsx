@@ -35,7 +35,7 @@ export const SplitText = ({ text, className = '', delay = 30 }: SplitTextProps) 
         ? { opacity: 1, transform: 'translate3d(0,0px,0)' }
         : { opacity: 0, transform: 'translate3d(0,40px,0)' },
       delay: i * delay,
-      config: { mass: 1, tension: 280, friction: 18 },
+      config: { mass: 1, tension: 100, friction: 18 },
     }))
   );
 

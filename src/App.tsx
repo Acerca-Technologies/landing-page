@@ -1,4 +1,4 @@
-import AcercaPetsLanding from "./components/AcercaPetsLanding";
+import AcercaPetsLanding from "./pages/pets/AcercaPetsLanding";
 
 function App() {
   return (

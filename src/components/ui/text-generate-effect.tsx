@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { motion, stagger, useAnimate, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "../../lib/utils";
 
 export const TextGenerateEffect = ({
@@ -13,53 +12,54 @@ export const TextGenerateEffect = ({
   filter?: boolean;
   duration?: number;
 }) => {
-  const [scope, animate] = useAnimate();
-  const isInView = useInView(scope, { once: true, margin: "-100px" });
-  let wordsArray = words.split(" ");
+  const wordsArray = words.split(" ");
 
-  useEffect(() => {
-    if (isInView) {
-      animate(
-        "span",
-        {
-          opacity: 1,
-          filter: filter ? "blur(0px)" : "none",
-        },
-        {
-          duration: duration ? duration : 1,
-          delay: stagger(0.2),
-        }
-      );
-    }
-  }, [isInView, animate, filter, duration]);
+  const container = {
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
-  const renderWords = () => {
-    return (
-      <motion.div ref={scope}>
+  const child = {
+    visible: {
+      opacity: 1,
+      filter: filter ? "blur(0px)" : "none",
+      y: 0,
+      transition: {
+        duration: duration,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      filter: filter ? "blur(8px)" : "none",
+      y: 5,
+    },
+  };
+
+  return (
+    <div className={cn("font-bold text-gray-900", className)}>
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="mt-4 leading-snug tracking-wide"
+      >
         {wordsArray.map((word, idx) => {
           return (
             <motion.span
+              variants={child}
               key={word + idx}
-              className="dark:text-white text-black opacity-0"
-              style={{
-                filter: filter ? "blur(10px)" : "none",
-              }}
+              className="inline-block will-change-[transform,opacity,filter]"
+              style={{ marginRight: "0.25em", transform: "translateZ(0)" }}
             >
-              {word}{" "}
+              {word}
             </motion.span>
           );
         })}
       </motion.div>
-    );
-  };
-
-  return (
-    <div className={cn("font-bold", className)}>
-      <div className="mt-4">
-        <div className=" dark:text-white text-black leading-snug tracking-wide">
-          {renderWords()}
-        </div>
-      </div>
     </div>
   );
 };
