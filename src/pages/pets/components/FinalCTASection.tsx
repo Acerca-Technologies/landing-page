@@ -1,6 +1,5 @@
 import { BlurFade } from '../../../components/ui/BlurFade';
 import { InteractiveButton } from '../../../components/ui/InteractiveButton';
-import { HoverBorderGradient } from '../../../components/ui/hover-border-gradient';
 
 export const FinalCTASection = () => {
   return (
@@ -10,12 +9,9 @@ export const FinalCTASection = () => {
           <BlurFade>
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight">No esperes a que sea tarde.</h2>
             <p className="text-xl text-blue-100 mb-10 font-light">Protege a tu mascota con la mejor tecnología disponible hoy mismo.</p>
-            <HoverBorderGradient 
-              containerClassName="bg-white text-blue-600 font-bold"
-              className="text-lg px-8 py-4 font-bold bg-white text-blue-600"
-            >
+            <InteractiveButton variant="secondary" size="lg" className="w-full sm:w-auto text-blue-600 font-bold px-12 py-5 text-xl">
               Proteger a mi mascota hoy
-            </HoverBorderGradient>
+            </InteractiveButton>
           </BlurFade>
         </div>
       </section>

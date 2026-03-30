@@ -1,17 +1,19 @@
 import { BlurFade } from '../../../components/ui/BlurFade';
-import { TextGenerateEffect } from '../../../components/ui/text-generate-effect';
+import { BlurText } from '../../../components/ui/BlurText';
 
 export const EmotionalSection = () => {
   return (
-    <section className="py-32 bg-[#fafafa] px-6 text-center">
+    <section className="py-32 bg-[#fafafa] dark:bg-slate-950 px-6 text-center transition-colors duration-500">
       <div className="max-w-4xl mx-auto">
         <BlurFade>
-          <h2 className="text-4xl lg:text-6xl font-black text-gray-900 mb-8 tracking-tighter">
+          <h2 className="text-4xl lg:text-6xl font-black text-gray-900 dark:text-white mb-8 tracking-tighter">
             No es un gadget.
           </h2>
-          <TextGenerateEffect 
-            words="Es la diferencia entre perderlos... y recuperarlos al instante." 
-            className="text-2xl lg:text-3xl text-gray-600 leading-relaxed font-light"
+          <BlurText 
+            text="Es la diferencia entre perderlos... y recuperarlos al instante." 
+            className="text-2xl lg:text-3xl text-gray-600 dark:text-gray-400 leading-relaxed font-light"
+            delay={50}
+            animateBy="words"
           />
         </BlurFade>
       </div>

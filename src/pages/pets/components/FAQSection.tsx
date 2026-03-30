@@ -6,13 +6,13 @@ import { BlurFade } from '../../../components/ui/BlurFade';
 const FAQItem = ({ question, answer }: { question: string, answer: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="border border-gray-100 rounded-2xl overflow-hidden mb-4 bg-white shadow-sm hover:shadow-md transition-shadow">
+    <div className="border border-gray-100 dark:border-slate-800 rounded-2xl overflow-hidden mb-4 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow">
       <button 
         className="w-full flex justify-between items-center p-6 text-left focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="font-semibold text-gray-900 pr-4">{question}</span>
-        <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+        <span className="font-semibold text-gray-900 dark:text-gray-100 pr-4">{question}</span>
+        <ChevronDown className={`w-5 h-5 text-gray-400 dark:text-gray-500 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -22,7 +22,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
             exit={{ height: 0, opacity: 0 }}
             className="overflow-hidden"
           >
-            <div className="p-6 pt-0 text-gray-600 leading-relaxed">
+            <div className="p-6 pt-0 text-gray-600 dark:text-gray-400 leading-relaxed">
               {answer}
             </div>
           </motion.div>
@@ -34,10 +34,10 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
 
 export const FAQSection = () => {
   return (
-    <section className="py-24 bg-white px-6">
+    <section className="py-24 bg-white dark:bg-slate-950 px-6 transition-colors duration-500">
       <div className="max-w-3xl mx-auto">
         <BlurFade>
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12 tracking-tight">Preguntas Frecuentes</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12 tracking-tight">Preguntas Frecuentes</h2>
         </BlurFade>
         
         <div className="space-y-2">

@@ -8,10 +8,12 @@ import { FeaturesSection } from './components/FeaturesSection';
 import { PricingSection } from './components/PricingSection';
 import { FAQSection } from './components/FAQSection';
 import { FinalCTASection } from './components/FinalCTASection';
+import ThemeToggle from '../../components/ui/ThemeToggle';
 
 export default function AcercaPetsLanding() {
   return (
-    <div className="min-h-screen bg-[#fafafa] font-sans selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-[#fafafa] dark:bg-slate-950 font-sans selection:bg-blue-100 selection:text-blue-900 transition-colors duration-500">
+      <ThemeToggle />
       <HeroSection />
       <SocialProofStrip />
       <HowItWorks />
