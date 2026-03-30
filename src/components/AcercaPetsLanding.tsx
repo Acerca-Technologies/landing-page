@@ -5,7 +5,6 @@ import { SplitText } from './ui/SplitText';
 import { BlurText } from './ui/BlurText';
 import { ShinyText } from './ui/ShinyText';
 import { Meteors } from './ui/meteors';
-import { BackgroundGradient } from './ui/background-gradient';
 import { TextGenerateEffect } from './ui/text-generate-effect';
 import { HoverBorderGradient } from './ui/hover-border-gradient';
 import { InteractiveButton } from './ui/InteractiveButton';
