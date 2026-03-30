@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AcercaPetsLanding from "./pages/pets/AcercaPetsLanding";
 import { Theme } from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
+import AcercaLanding from "./pages/acerca/AcercaLanding";
 
 function App() {
   const [appearance, setAppearance] = useState<"light" | "dark">(() => {
@@ -38,7 +39,11 @@ function App() {
 
   return (
     <Theme appearance={appearance}>
-      <AcercaPetsLanding />
+      {import.meta.env.VITE_APP_TYPE === 'pets' ? (
+        <AcercaPetsLanding />
+      ) : (
+        <AcercaLanding />
+      )}
     </Theme>
   );
 }

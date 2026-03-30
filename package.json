@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:pets": "VITE_APP_TYPE=pets tsc -b && VITE_APP_TYPE=pets vite build",
+    "build:acerca": "VITE_APP_TYPE=acerca tsc -b && VITE_APP_TYPE=acerca vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
